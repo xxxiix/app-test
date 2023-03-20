@@ -13,7 +13,6 @@ services:
       - ./models/create_table.sql:/data/application/create_table.sql
   app-test:
     build: .
-    command: sh -c "./wait-for.sh mysql-test:3306 -- ./app-test config.yaml"
     depends_on:
       - mysql-test
     ports:
