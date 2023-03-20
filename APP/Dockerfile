@@ -24,21 +24,13 @@ RUN go build -o app-test .
 FROM debian:stretch-slim
 
 # 拷贝基础配置设定
-COPY wait-for.sh .
 COPY config.yaml .
 
 # 将可执行文件复制到小镜像中
 COPY --from=builder /build/app-test /
 
-RUN set -eux; \
-	apt-get update; \
-	apt-get install -y \
-		--no-install-recommends \
-		netcat; \
-        chmod 755 wait-for.sh
-
 # 声明服务器端口
 EXPOSE 8088
 
 # 需要运行的命令
-# ENTRYPOINT [ "/app", "config.yaml" ]
+ENTRYPOINT [ "/app-test", "config.yaml" ]
