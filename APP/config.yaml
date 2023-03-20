@@ -1,0 +1,33 @@
+app:
+  name: "test"
+  mode: "dev"
+  port: 8080
+  start_time: "2023-03-13"
+  machine_id: 1
+
+logger:
+  level: "debug"
+  name: "test.log"
+  max_sizes: 200
+  max_age: 30
+  max_backups: 7
+
+mysql:
+  host: mysql-test
+  port: 3306
+  user: "root"
+  password: "root123456"
+  dbname: "app"
+  max_idle_conns: 50
+  max_open_conns: 200
+
+auth:
+  jwt_expire: 8760
+
+sms:
+  account: "账号"
+  password: "密码"
+  
+
+
+
